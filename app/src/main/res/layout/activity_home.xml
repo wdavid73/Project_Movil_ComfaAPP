@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".HomeActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRegisterCloth"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="GoToRegisterCloth"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblHome">
+
+        <ImageView
+            android:id="@+id/imgRegisterCloth"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/needle" />
+
+        <TextView
+            android:id="@+id/lblRegisterCloth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center|center_horizontal"
+            android:gravity="center"
+            android:text="@string/btn_cloth"
+            android:textColor="@color/colorPrimaryLight" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvListCloth"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="@color/colorPrimary"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/cvRegisterCloth"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cvRegisterCloth"
+        app:layout_constraintTop_toBottomOf="@+id/cvRegisterCloth">
+
+        <ImageView
+            android:id="@+id/imgListCloth"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/list_cloth" />
+
+        <TextView
+            android:id="@+id/lblListCloth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="center"
+            android:text="@string/btn_list_cloth"
+            android:textColor="@color/colorPrimaryLight" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRegisterRental"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="180dp"
+        android:backgroundTint="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lblHome">
+
+        <ImageView
+            android:id="@+id/imgRegisterRental"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/rental" />
+
+        <TextView
+            android:id="@+id/lblRegisterRental"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="center"
+            android:text="@string/btn_rental"
+            android:textColor="@color/colorPrimaryLight" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvListRental"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/cvRegisterRental"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cvRegisterRental"
+        app:layout_constraintTop_toBottomOf="@+id/cvRegisterRental">
+
+        <ImageView
+            android:id="@+id/imgListRental"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/list_rental" />
+
+        <TextView
+            android:id="@+id/lblListRental"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="center"
+            android:text="@string/btn_list_rentals"
+            android:textColor="@color/colorPrimaryLight" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/lblHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

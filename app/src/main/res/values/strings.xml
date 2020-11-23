@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">ConfmaAPP</string>
+    <string name="btn_cloth">Registrar Prenda</string>
+    <string name="btn_rental">Registrar Alquiler</string>
+    <string name="btn_list_cloth">Lista de Prendas</string>
+    <string name="btn_list_rentals">Lista de Alquileres</string>
+    <string name="home">Inicio</string>
+    <string name="title_activity_list_cloth">Lista de Prendas Activity</string>
+    <string name="title_activity_list_rentals">Lista de Alquileres Activity</string>
+
+    <string name="select_size">Seleccione su talla</string>
+    <string name="size_xs">Talla XS</string>
+    <string name="size_s">Talla S</string>
+    <string name="size_m">Talla M</string>
+    <string name="size_l">Talla L</string>
+    <string name="size_xl">Talla XL</string>
+
+    <string name="select_fashion">Seleccione la Moda de la Prenda</string>
+    <string name="general">General</string>
+    <string name="to_measure">A Medida</string>
+
+
+    <string-array name="sizes">
+        <item>@string/select_size</item>
+        <item>@string/size_xs</item>
+        <item>@string/size_s</item>
+        <item>@string/size_m</item>
+        <item>@string/size_l</item>
+        <item>@string/size_xl</item>
+    </string-array>
+
+
+    <string-array name="fashions">
+        <item>@string/select_fashion</item>
+        <item>@string/general</item>
+        <item>@string/to_measure</item>
+    </string-array>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="input_ref">Input a ref</string>
+    <string name="title_register_cloth">Registrar Prenda</string>
+    <string name="btn_choose_image">Choose a Image</string>
+    <string name="save">Guardar</string>
+    <string name="pick_color">Pick Color</string>
+    <string name="info_color_selected">El Color que elija se vera reflejado en el color del boton</string>
+
+
+</resources>
