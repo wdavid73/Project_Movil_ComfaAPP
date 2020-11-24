@@ -1,17 +1,15 @@
 package com.example.confmaapp.Objects;
 
-import android.net.Uri;
-
 import java.io.Serializable;
 
 public class Cloth implements Serializable {
-    private Uri photo_cloth;
+    private String photo_cloth;
     private String ref;
     private int size;
     private int color;
     private int style_fashion;
 
-    public Cloth(Uri photo_cloth, String ref, int size, int color, int style_fashion) {
+    public Cloth(String photo_cloth, String ref, int size, int color, int style_fashion) {
         this.photo_cloth = photo_cloth;
         this.ref = ref;
         this.size = size;
@@ -19,11 +17,11 @@ public class Cloth implements Serializable {
         this.style_fashion = style_fashion;
     }
 
-    public Uri getPhoto_cloth() {
+    public String getPhoto_cloth() {
         return photo_cloth;
     }
 
-    public void setPhoto_cloth(Uri photo_cloth) {
+    public void setPhoto_cloth(String photo_cloth) {
         this.photo_cloth = photo_cloth;
     }
 

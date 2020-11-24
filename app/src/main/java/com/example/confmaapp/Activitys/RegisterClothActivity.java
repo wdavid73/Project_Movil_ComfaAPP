@@ -8,9 +8,14 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,8 +28,15 @@ import android.widget.Toast;
 import com.example.confmaapp.Objects.Cloth;
 import com.example.confmaapp.Objects.Data;
 import com.example.confmaapp.R;
+import com.google.android.material.snackbar.Snackbar;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 
@@ -36,11 +48,12 @@ public class RegisterClothActivity extends AppCompatActivity {
     private EditText ref;
     private String[] sizes , fashions;
 
+    private String Document_img1="";
 
     private static final int IMAGE_PICK_CODE = 1000;    
     private static final int PERMISSION_CODE = 1001;
     int COLOR_SELECTED;
-    Uri img;
+    String img;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +122,7 @@ public class RegisterClothActivity extends AppCompatActivity {
         AmbilWarnaDialog ambilWarnaDialog = new AmbilWarnaDialog(this, COLOR_SELECTED, new AmbilWarnaDialog.OnAmbilWarnaListener() {
             @Override
             public void onCancel(AmbilWarnaDialog dialog) {
-                Log.i("info" , String.valueOf(dialog));
+                //Log.i("onCancel" , "openColorPicker_OnCancel");
             }
 
             @Override
@@ -134,7 +147,7 @@ public class RegisterClothActivity extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     pickImageFromGallery();
                 }else{
-                    Toast.makeText(this ,"Permission denied..!" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(this , R.string.permision_denied , Toast.LENGTH_LONG).show();
                 }
             }
         }
@@ -145,12 +158,25 @@ public class RegisterClothActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             // set image to image view
-            Log.i("info" , String.valueOf(data.getData()));
+            Uri seletedImage = data.getData();
+            String[] filePath = { MediaStore.Images.Media.DATA };
+            Cursor c = getContentResolver().query(seletedImage,filePath,null,null,null);
+            c.moveToFirst();
+            int columnIndex = c.getColumnIndex(filePath[0]);
+            String picturePath = c.getString(columnIndex);
+            c.close();
+            Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
+            thumbnail = getResizedBitmap(thumbnail,400);
+            image_select.setImageBitmap(thumbnail);
+            img = BitMapToString(thumbnail);
+
+            /*
+            Log.i("image_selected" , String.valueOf(data.getData()));
             img = data.getData();
             image_select.setImageURI(data.getData());
+            */
         }
     }
-
     public void save(View v){
         int optSize , optFashion,siz,fash;
         String r;
@@ -173,7 +199,7 @@ public class RegisterClothActivity extends AppCompatActivity {
                     siz = R.string.size_xl;
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + optSize);
+                    throw new IllegalStateException(getString(R.string.unexpected_value) + optSize);
             }
 
             switch (optFashion){
@@ -183,11 +209,12 @@ public class RegisterClothActivity extends AppCompatActivity {
                     fash = R.string.to_measure;
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + optFashion);
+                    throw new IllegalStateException(getString(R.string.unexpected_value) + optFashion);
             }
 
             cloth = new Cloth(img,r,siz,COLOR_SELECTED,fash);
             cloth.save();
+            Snackbar.make(v, R.string.cloth_save_success, Snackbar.LENGTH_LONG).show();
             clear();
         }
 
@@ -197,14 +224,14 @@ public class RegisterClothActivity extends AppCompatActivity {
 
         if(img == null){
             Toast.makeText(this,
-                    "porfavor seleccione una imagen",
+                    R.string.please_select_a_image,
                     Toast.LENGTH_LONG
             ).show();
             return false;
         }
         if (ref.getText().toString().isEmpty()){
             Toast.makeText(this,
-                    "Porfavor ingrese un nombre de referencia para la prenda",
+                    R.string.please_input_a_ref,
                     Toast.LENGTH_LONG
             ).show();
             return false;
@@ -212,7 +239,7 @@ public class RegisterClothActivity extends AppCompatActivity {
 
         if (spSize.getSelectedItemPosition() == 0){
             Toast.makeText(this,
-                    "porfavor seleccione una talla",
+                    R.string.please_select_a_size,
                     Toast.LENGTH_LONG
             ).show();
             return false;
@@ -220,7 +247,7 @@ public class RegisterClothActivity extends AppCompatActivity {
 
         if(spFashion.getSelectedItemPosition() == 0){
             Toast.makeText(this,
-                    "porfavor seleccione el estilo de la prenda",
+                    R.string.please_select_a_fashion,
                     Toast.LENGTH_LONG
             ).show();
             return false;
@@ -228,7 +255,7 @@ public class RegisterClothActivity extends AppCompatActivity {
 
         if(COLOR_SELECTED == 0) {
             Toast.makeText(this,
-                    "porfavor escoga el color de la prenda",
+                    R.string.please_pick_a_color,
                     Toast.LENGTH_LONG
             ).show();
             return false;
@@ -247,5 +274,28 @@ public class RegisterClothActivity extends AppCompatActivity {
         spSize.setSelection(0);
         image_select.setImageResource(R.drawable.ic_baseline_image_24);
         btnPickColor.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+    }
+
+    public String BitMapToString(Bitmap userImage1) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        userImage1.compress(Bitmap.CompressFormat.PNG, 60, baos);
+        byte[] b = baos.toByteArray();
+        Document_img1 = Base64.encodeToString(b, Base64.DEFAULT);
+        return Document_img1;
+    }
+
+    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float)width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true);
     }
 }

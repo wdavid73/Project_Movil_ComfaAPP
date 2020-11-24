@@ -15,6 +15,8 @@
     <string name="size_l">Talla L</string>
     <string name="size_xl">Talla XL</string>
 
+    <string name="delete">Eliminar</string>
+
     <string name="select_fashion">Seleccione la Moda de la Prenda</string>
     <string name="general">General</string>
     <string name="to_measure">A Medida</string>
@@ -50,7 +52,20 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="permision_denied">Permission denied..!</string>
+    <string name="unexpected_value">\"Unexpected value: \"</string>
+    <string name="cloth_save_success">Prenda Guardada Satisfactoriamente</string>
+    <string name="please_select_a_image">porfavor seleccione una imagen</string>
+    <string name="please_input_a_ref">Porfavor ingrese un nombre de referencia para la prenda</string>
+    <string name="please_select_a_size">porfavor seleccione una talla</string>
+    <string name="please_select_a_fashion">porfavor seleccione el estilo de la prenda</string>
+    <string name="please_pick_a_color">porfavor escoga el color de la prenda</string>
+    <string name="color">Color</string>
+    <string name="ref">Ref</string>
+    <string name="size">Talla</string>
+    <string name="fashion">Moda</string>
+    <string name="list_cloth">Listar Prendas</string>
+    <string name="details_cloth">Detall de Prenda</string>
 
 
 </resources>
