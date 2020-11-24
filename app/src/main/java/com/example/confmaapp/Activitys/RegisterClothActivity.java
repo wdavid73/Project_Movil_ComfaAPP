@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -154,39 +155,97 @@ public class RegisterClothActivity extends AppCompatActivity {
         int optSize , optFashion,siz,fash;
         String r;
         Cloth cloth;
-        optSize = spSize.getSelectedItemPosition();
-        optFashion = spFashion.getSelectedItemPosition();
-        r = ref.getText().toString();
+        if (validate()){
+            optSize = spSize.getSelectedItemPosition();
+            optFashion = spFashion.getSelectedItemPosition();
+            r = ref.getText().toString();
 
-        switch (optSize){
-            case 1:
-                siz = R.string.size_xs;
-            case 2:
-                siz = R.string.size_s;
-            case 3:
-                siz = R.string.size_m;
-            case 4:
-                siz = R.string.size_l;
-            case 5:
-                siz = R.string.size_xl;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + optSize);
+            switch (optSize){
+                case 1:
+                    siz = R.string.size_xs;
+                case 2:
+                    siz = R.string.size_s;
+                case 3:
+                    siz = R.string.size_m;
+                case 4:
+                    siz = R.string.size_l;
+                case 5:
+                    siz = R.string.size_xl;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + optSize);
+            }
+
+            switch (optFashion){
+                case 1:
+                    fash = R.string.general;
+                case 2:
+                    fash = R.string.to_measure;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + optFashion);
+            }
+
+            cloth = new Cloth(img,r,siz,COLOR_SELECTED,fash);
+            cloth.save();
+            clear();
         }
 
-        switch (optFashion){
-            case 1:
-                fash = R.string.general;
-            case 2:
-                fash = R.string.to_measure;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + optFashion);
+    }
+
+    public boolean validate(){
+
+        if(img == null){
+            Toast.makeText(this,
+                    "porfavor seleccione una imagen",
+                    Toast.LENGTH_LONG
+            ).show();
+            return false;
+        }
+        if (ref.getText().toString().isEmpty()){
+            Toast.makeText(this,
+                    "Porfavor ingrese un nombre de referencia para la prenda",
+                    Toast.LENGTH_LONG
+            ).show();
+            return false;
         }
 
-        cloth = new Cloth(img,r,siz,COLOR_SELECTED,fash);
-        Log.i("cloth" , String.valueOf(cloth));
-        cloth.save();
-        Log.i("cloths" , String.valueOf(Data.get_cloths()));
+        if (spSize.getSelectedItemPosition() == 0){
+            Toast.makeText(this,
+                    "porfavor seleccione una talla",
+                    Toast.LENGTH_LONG
+            ).show();
+            return false;
+        }
+
+        if(spFashion.getSelectedItemPosition() == 0){
+            Toast.makeText(this,
+                    "porfavor seleccione el estilo de la prenda",
+                    Toast.LENGTH_LONG
+            ).show();
+            return false;
+        }
+
+        if(COLOR_SELECTED == 0) {
+            Toast.makeText(this,
+                    "porfavor escoga el color de la prenda",
+                    Toast.LENGTH_LONG
+            ).show();
+            return false;
+        }
+
+        return true;
+    }
+
+    public void clear(View v){
+        clear();
+    }
+
+    public void clear(){
+        ref.setText("");
+        spFashion.setSelection(0);
+        spSize.setSelection(0);
+        image_select.setImageResource(R.drawable.ic_baseline_image_24);
+        btnPickColor.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 }

@@ -8,7 +8,7 @@
     <string name="title_activity_list_cloth">Lista de Prendas Activity</string>
     <string name="title_activity_list_rentals">Lista de Alquileres Activity</string>
 
-    <string name="select_size">Seleccione su talla</string>
+    <string name="select_size">Seleccione su Talla de Prenda</string>
     <string name="size_xs">Talla XS</string>
     <string name="size_s">Talla S</string>
     <string name="size_m">Talla M</string>
@@ -19,6 +19,13 @@
     <string name="general">General</string>
     <string name="to_measure">A Medida</string>
 
+
+    <string name="title_register_cloth">Registrar Prenda</string>
+    <string name="btn_choose_image">Choose a Image</string>
+    <string name="save">Guardar</string>
+    <string name="pick_color">elegir color</string>
+    <string name="input_ref">Ingrese un nombre de referencia</string>
+    <string name="info_color_selected">El Color que elija se vera reflejado en el color del boton</string>
 
     <string-array name="sizes">
         <item>@string/select_size</item>
@@ -43,12 +50,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="input_ref">Input a ref</string>
-    <string name="title_register_cloth">Registrar Prenda</string>
-    <string name="btn_choose_image">Choose a Image</string>
-    <string name="save">Guardar</string>
-    <string name="pick_color">Pick Color</string>
-    <string name="info_color_selected">El Color que elija se vera reflejado en el color del boton</string>
+
 
 
 </resources>
