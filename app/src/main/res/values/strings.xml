@@ -76,6 +76,12 @@
     <string name="save_rental_successful">Alquiler Guardado Satisfactoriamente</string>
     <string name="cloth_required">Porfavor registre una prendas antes</string>
     <string name="img_selected">img selected</string>
+    <string name="date_now">Fecha de Ingreso</string>
+    <string name="date_return">Fecha de Devolucion</string>
+    <string name="price_rental">Precio</string>
+    <string name="rental">Alquiler</string>
+    <string name="cloth">Prenda</string>
+    <string name="list_rentals">Lista de Alquileres</string>
 
 
 </resources>
