@@ -66,6 +66,7 @@ public class RegisterRentalActivity
             required_cloth.setText("");
         }else{
             required_cloth.setText(R.string.cloth_required);
+            required_cloth.setTextColor(getResources().getColor(R.color.colorAccent));
         }
         //Log.i("rentals" , String.valueOf(Data.get_rentals()));
 
@@ -108,24 +109,16 @@ public class RegisterRentalActivity
         Cloth c;
         Rental rental;
         if(validate()){
-            dn = date_now;
-            c = cloth;
-            p = price.getText().toString();
-            dr = selectedDate;
-
-            rental = new Rental(dn,dr,p,c);
+            rental = new Rental(date_now,selectedDate,price.getText().toString(),cloth);
             rental.save();
             Snackbar.make(v, R.string.save_rental_successful, Snackbar.LENGTH_LONG).show();
             clear();
-
         }
     }
 
     public void clear(){
         date.setText("");
         price.setText("");
-        adapterClothRental.setSelected(false);
-
     }
 
     public boolean validate(){
@@ -138,7 +131,6 @@ public class RegisterRentalActivity
 
         if(date.getText().toString().isEmpty()){
             Toast.makeText(this , R.string.please_input_date, Toast.LENGTH_LONG).show();
-            date.requestFocus();
             return false;
         }
 

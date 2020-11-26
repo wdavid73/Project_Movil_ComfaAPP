@@ -1,5 +1,6 @@
 package com.example.confmaapp.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -8,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.confmaapp.Adapters.AdapterClothRental;
 import com.example.confmaapp.Adapters.AdapterRental;
 import com.example.confmaapp.Objects.Data;
 import com.example.confmaapp.Objects.Rental;
@@ -17,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class ListRentalsActivity extends AppCompatActivity {
+public class ListRentalsActivity extends AppCompatActivity implements AdapterRental.onRentalClickListener {
 
     private RecyclerView lst_rentals;
     private AdapterRental adapterRental;
@@ -35,7 +37,7 @@ public class ListRentalsActivity extends AppCompatActivity {
         lst_rentals = findViewById(R.id.lstRentals);
         rentals = Data.get_rentals();
 
-        adapterRental = new AdapterRental(rentals);
+        adapterRental = new AdapterRental(rentals, this);
         llm = new LinearLayoutManager(this);
         llm.setOrientation(RecyclerView.VERTICAL);
 
@@ -46,10 +48,27 @@ public class ListRentalsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ListRentalsActivity.this , RegisterRentalActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
+    }
+
+    @Override
+    public void onRentalClick(Rental r) {
+        Intent intent;
+        Bundle bundle;
+        bundle = new Bundle();
+        bundle.putString("date_now" , r.getDate_now());
+        bundle.putString("date_return" , r.getDate_return());
+        bundle.putString("price" , r.getPrice());
+
+        intent = new Intent(ListRentalsActivity.this , DetailsRentalActivity.class);
+        intent.putExtra("data" , bundle);
+        intent.putExtra("rental_cloth" , r.getCloth());
+        startActivity(intent);
+        finish();
     }
 
 }

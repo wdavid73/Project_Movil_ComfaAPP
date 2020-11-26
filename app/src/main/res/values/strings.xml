@@ -82,6 +82,8 @@
     <string name="rental">Alquiler</string>
     <string name="cloth">Prenda</string>
     <string name="list_rentals">Lista de Alquileres</string>
+    <string name="example">example</string>
+    <string name="details_rental">Detalle del Alquiler</string>
 
 
 </resources>

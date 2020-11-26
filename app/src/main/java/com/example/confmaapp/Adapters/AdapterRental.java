@@ -21,9 +21,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AdapterRental extends RecyclerView.Adapter<AdapterRental.RentalViewHolder>{
 
     private ArrayList<Rental> rentals;
+    private onRentalClickListener clickListener;
 
-    public AdapterRental(ArrayList<Rental> rentals) {
+    public AdapterRental(ArrayList<Rental> rentals, onRentalClickListener clickListener) {
         this.rentals = rentals;
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -37,7 +39,7 @@ public class AdapterRental extends RecyclerView.Adapter<AdapterRental.RentalView
 
     @Override
     public void onBindViewHolder(@NonNull RentalViewHolder holder, int position) {
-        Rental rental = rentals.get(position);
+        final Rental rental = rentals.get(position);
 
         Bitmap photo = StringToBitMap(rental.getCloth().getPhoto_cloth());
         holder.photoClothRental.setImageBitmap(photo);
@@ -49,6 +51,12 @@ public class AdapterRental extends RecyclerView.Adapter<AdapterRental.RentalView
         holder.fashionCloth.setText(rental.getCloth().getStyle_fashion());
         holder.colorCloth.setBackgroundColor(rental.getCloth().getColor());
 
+        holder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListener.onRentalClick(rental);
+            }
+        });
 
     }
 
@@ -88,5 +96,9 @@ public class AdapterRental extends RecyclerView.Adapter<AdapterRental.RentalView
             e.getMessage();
             return null;
         }
+    }
+
+    public interface onRentalClickListener{
+        void onRentalClick(Rental r);
     }
 }

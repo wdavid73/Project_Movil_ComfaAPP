@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/colorAccent"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp">
 
@@ -36,7 +37,7 @@
                     android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="@string/rental"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -50,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/date_now"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -61,7 +62,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="TextView"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -75,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/date_return"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -86,7 +87,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="TextView"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -100,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/price_rental"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -111,7 +112,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="TextView"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -126,7 +127,7 @@
                     android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="@string/cloth"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -140,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ref"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -151,7 +152,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="TextView"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -165,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/size"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -176,7 +177,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="TextView"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -190,7 +191,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fashion"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -201,7 +202,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="TextView"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -216,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/color"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
