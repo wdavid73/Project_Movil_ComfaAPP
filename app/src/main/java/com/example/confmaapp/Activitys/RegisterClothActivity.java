@@ -1,11 +1,6 @@
 package com.example.confmaapp.Activitys;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -16,27 +11,24 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.confmaapp.Objects.Cloth;
-import com.example.confmaapp.Objects.Data;
 import com.example.confmaapp.R;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLConnection;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 
@@ -44,9 +36,10 @@ public class RegisterClothActivity extends AppCompatActivity {
 
     private ImageView image_select;
     private Button ChooseBtn , btnPickColor;
-    private Spinner spSize , spFashion;
+    private Spinner spSize ;
+    private RadioButton rbGeneral , rbToMeasure;
     private EditText ref;
-    private String[] sizes , fashions;
+    private String[] sizes;
 
     private String Document_img1="";
 
@@ -62,11 +55,12 @@ public class RegisterClothActivity extends AppCompatActivity {
         setTitle(R.string.title_register_cloth);
 
         ref = findViewById(R.id.txtRef);
-        spFashion = findViewById(R.id.spFashion);
+
         spSize = findViewById(R.id.spSize);
+        rbGeneral = findViewById(R.id.rbGeneral);
+        rbToMeasure = findViewById(R.id.rbToMeasure);
 
         sizes = getResources().getStringArray(R.array.sizes);
-        fashions = getResources().getStringArray(R.array.fashions);
 
         ArrayAdapter<String> adapterSizes = new ArrayAdapter<>(
                 this,
@@ -74,14 +68,9 @@ public class RegisterClothActivity extends AppCompatActivity {
                 sizes
         );
 
-        ArrayAdapter<String> adapterFashions = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_dropdown_item,
-                fashions
-        );
+
 
         spSize.setAdapter(adapterSizes);
-        spFashion.setAdapter(adapterFashions);
 
         image_select = findViewById(R.id.image_selected);
         ChooseBtn = findViewById(R.id.btnChooseImage);
@@ -178,12 +167,11 @@ public class RegisterClothActivity extends AppCompatActivity {
         }
     }
     public void save(View v){
-        int optSize , optFashion,siz,fash;
+        int optSize, siz, fash = 0;
         String r;
         Cloth cloth;
         if (validate()){
             optSize = spSize.getSelectedItemPosition();
-            optFashion = spFashion.getSelectedItemPosition();
             r = ref.getText().toString();
 
             switch (optSize){
@@ -202,14 +190,12 @@ public class RegisterClothActivity extends AppCompatActivity {
                     throw new IllegalStateException(getString(R.string.unexpected_value) + optSize);
             }
 
-            switch (optFashion){
-                case 1:
-                    fash = R.string.general;
-                case 2:
-                    fash = R.string.to_measure;
-                    break;
-                default:
-                    throw new IllegalStateException(getString(R.string.unexpected_value) + optFashion);
+            if(rbGeneral.isChecked() == true){
+                fash = R.string.general;
+            }
+
+            if(rbToMeasure.isChecked() == true) {
+                fash = R.string.to_measure;
             }
 
             cloth = new Cloth(img,r,siz,COLOR_SELECTED,fash);
@@ -227,6 +213,7 @@ public class RegisterClothActivity extends AppCompatActivity {
                     R.string.please_select_a_image,
                     Toast.LENGTH_LONG
             ).show();
+            ChooseBtn.requestFocus();
             return false;
         }
         if (ref.getText().toString().isEmpty()){
@@ -234,6 +221,7 @@ public class RegisterClothActivity extends AppCompatActivity {
                     R.string.please_input_a_ref,
                     Toast.LENGTH_LONG
             ).show();
+            ref.requestFocus();
             return false;
         }
 
@@ -242,14 +230,16 @@ public class RegisterClothActivity extends AppCompatActivity {
                     R.string.please_select_a_size,
                     Toast.LENGTH_LONG
             ).show();
+            spSize.requestFocus();
             return false;
         }
 
-        if(spFashion.getSelectedItemPosition() == 0){
+        if(rbGeneral.isChecked() == false && rbToMeasure.isChecked() == false){
             Toast.makeText(this,
-                    R.string.please_select_a_fashion,
-                    Toast.LENGTH_LONG
-            ).show();
+                            R.string.please_select_a_fashion,
+                            Toast.LENGTH_LONG
+                    ).show();
+            rbGeneral.requestFocus();
             return false;
         }
 
@@ -258,6 +248,7 @@ public class RegisterClothActivity extends AppCompatActivity {
                     R.string.please_pick_a_color,
                     Toast.LENGTH_LONG
             ).show();
+            btnPickColor.requestFocus();
             return false;
         }
 
@@ -270,7 +261,8 @@ public class RegisterClothActivity extends AppCompatActivity {
 
     public void clear(){
         ref.setText("");
-        spFashion.setSelection(0);
+        rbGeneral.setChecked(false);
+        rbToMeasure.setChecked(false);
         spSize.setSelection(0);
         image_select.setImageResource(R.drawable.ic_baseline_image_24);
         btnPickColor.setBackgroundColor(getResources().getColor(R.color.colorAccent));

@@ -3,14 +3,12 @@ package com.example.confmaapp.Adapters;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.confmaapp.Objects.Cloth;
@@ -22,8 +20,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterCloth extends RecyclerView.Adapter<AdapterCloth.ClothViewHolder>{
 
-    private ArrayList<Cloth> cloths;
-    private onClothClickListener clickListener;
+    private final ArrayList<Cloth> cloths;
+    private final onClothClickListener clickListener;
 
     public AdapterCloth(ArrayList<Cloth> cloths, onClothClickListener clickListener){
         this.cloths = cloths;
@@ -43,7 +41,7 @@ public class AdapterCloth extends RecyclerView.Adapter<AdapterCloth.ClothViewHol
     public void onBindViewHolder(@NonNull ClothViewHolder holder, int position) {
         final Cloth cloth = cloths.get(position);
 
-        Log.i("img" , cloth.getPhoto_cloth());
+        //Log.i("img" , cloth.getPhoto_cloth());
         /*cloth.getPhoto_cloth()*/
         Bitmap photo = StringToBitMap(cloth.getPhoto_cloth());
         holder.photoCloth.setImageBitmap(photo);
@@ -67,9 +65,12 @@ public class AdapterCloth extends RecyclerView.Adapter<AdapterCloth.ClothViewHol
     }
 
     public static class ClothViewHolder extends RecyclerView.ViewHolder{
-        private CircleImageView photoCloth;
-        private TextView ref,size,fashion;
-        private View color , v;
+        private final CircleImageView photoCloth;
+        private final TextView ref;
+        private final TextView size;
+        private final TextView fashion;
+        private final View color;
+        private final View v;
 
         public ClothViewHolder(View itemView){
             super(itemView);
@@ -85,8 +86,7 @@ public class AdapterCloth extends RecyclerView.Adapter<AdapterCloth.ClothViewHol
     public Bitmap StringToBitMap(String encodedString){
         try{
             byte [] encodeByte = Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
+            return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         }
         catch(Exception e){
             e.getMessage();

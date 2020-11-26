@@ -46,4 +46,8 @@ public class Rental implements Serializable {
     public void setCloth(Cloth cloth) {
         this.cloth = cloth;
     }
+
+    public void save(){
+        Data.save_rental(this);
+    }
 }

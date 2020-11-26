@@ -9,6 +9,8 @@ public class Cloth implements Serializable {
     private int color;
     private int style_fashion;
 
+
+
     public Cloth(String photo_cloth, String ref, int size, int color, int style_fashion) {
         this.photo_cloth = photo_cloth;
         this.ref = ref;
@@ -16,6 +18,8 @@ public class Cloth implements Serializable {
         this.color = color;
         this.style_fashion = style_fashion;
     }
+
+
 
     public String getPhoto_cloth() {
         return photo_cloth;

@@ -1,17 +1,14 @@
 package com.example.confmaapp.Activitys;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.confmaapp.HomeActivity;
-import com.example.confmaapp.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
+import com.example.confmaapp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ListRentalsActivity extends AppCompatActivity {
 

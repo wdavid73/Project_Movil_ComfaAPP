@@ -2,6 +2,12 @@ package com.example.confmaapp.Activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.confmaapp.Adapters.AdapterCloth;
 import com.example.confmaapp.HomeActivity;
@@ -9,13 +15,6 @@ import com.example.confmaapp.Objects.Cloth;
 import com.example.confmaapp.Objects.Data;
 import com.example.confmaapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.View;
 
 import java.util.ArrayList;
 

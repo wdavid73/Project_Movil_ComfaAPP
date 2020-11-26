@@ -6,15 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".Activitys.RegisterRentalActivity">
 
-    <TextView
-        android:id="@+id/textView7"
+    <EditText
+        android:id="@+id/txtdateReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registro de Alquiler Activty"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:hint="@string/input_date"
+        android:inputType="date"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPriceRental"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/txtPriceRental"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/input_price_rental"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="276dp"
+        android:layout_height="48dp"
+        android:background="@color/colorAccent"
+        android:onClick="save"
+        android:text="@string/save"
+        android:textColor="@color/colorPrimaryLight"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lstClothRentals"
+        app:layout_constraintVertical_bias="0.513" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lstClothRentals"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblClothRequired" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_negro_confma"
+        android:contentDescription="@string/img_selected" />
+
+    <TextView
+        android:id="@+id/lblClothRequired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintTop_toBottomOf="@+id/txtdateReturn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

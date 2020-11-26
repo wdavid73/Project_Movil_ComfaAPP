@@ -66,6 +66,16 @@
     <string name="fashion">Moda</string>
     <string name="list_cloth">Listar Prendas</string>
     <string name="details_cloth">Detall de Prenda</string>
+    <string name="title_register_rental">Registro de Alquiler</string>
+    <string name="input_date">Porfavor Ingrese una Fecha de Devolucion</string>
+    <string name="input_price_rental">Porfavor Ingrese el valor del alquiler</string>
+    <string name="please_input_date">Porfavor Ingrese la Fecha de Devolucion</string>
+    <string name="please_input_price">Porfavor Ingrese el valor del alquiler</string>
+    <string name="please_choose_cloth">Porfavor Seleccione la prenda a alquilar</string>
+    <string name="error_date_now">Ha Ocurrido un Error Obteniendo la fecha actual intentlo mas tarde</string>
+    <string name="save_rental_successful">Alquiler Guardado Satisfactoriamente</string>
+    <string name="cloth_required">Porfavor registre una prendas antes</string>
+    <string name="img_selected">img selected</string>
 
 
 </resources>

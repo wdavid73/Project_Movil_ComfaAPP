@@ -15,7 +15,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_image_24" />
+        app:srcCompat="@drawable/ic_baseline_image_24"
+        android:contentDescription="@string/img_selected" />
 
     <Button
         android:id="@+id/btnChooseImage"
@@ -42,7 +43,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage"
+        android:autofillHints="@string/input_ref" />
 
     <Spinner
         android:id="@+id/spSize"
@@ -53,16 +55,6 @@
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRef" />
-
-    <Spinner
-        android:id="@+id/spFashion"
-        android:layout_width="300dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spSize" />
 
     <Button
         android:id="@+id/button2"
@@ -82,14 +74,14 @@
         android:id="@+id/btnPickColor"
         android:layout_width="334dp"
         android:layout_height="46dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:background="@color/colorAccent"
         android:text="@string/pick_color"
         android:textColor="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spFashion" />
+        app:layout_constraintTop_toBottomOf="@+id/rgFashion" />
 
     <TextView
         android:id="@+id/textView"
@@ -103,4 +95,28 @@
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="@+id/btnPickColor"
         app:layout_constraintTop_toBottomOf="@+id/btnPickColor" />
+
+    <RadioGroup
+        android:id="@+id/rgFashion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spSize">
+
+        <RadioButton
+            android:id="@+id/rbGeneral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/general" />
+
+        <RadioButton
+            android:id="@+id/rbToMeasure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_measure" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
