@@ -1,5 +1,6 @@
 package com.example.confmaapp.Fragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.widget.DatePicker;
@@ -29,11 +30,13 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        return new DatePickerDialog(getActivity(), listener, year, month, day);
+        //return new DatePickerDialog(getActivity(), listener, year, month, day);
+        return new DatePickerDialog(getActivity(),AlertDialog.THEME_DEVICE_DEFAULT_DARK,listener,year,month,day);
     }
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
     }
+
 }

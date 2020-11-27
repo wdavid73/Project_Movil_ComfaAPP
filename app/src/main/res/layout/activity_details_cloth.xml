@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.DetailsClothActivity" >
+    android:background="@color/colorPrimaryText"
+    tools:context=".Activitys.DetailsClothActivity">
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/menuFab"
@@ -32,6 +33,7 @@
             android:id="@+id/menu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="delete"
             android:src="@android:drawable/ic_menu_delete"
             fab:fab_label="@string/delete"
             fab:fab_size="mini" />
@@ -49,6 +51,7 @@
             android:layout_height="250dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:background="#00FFFFFF"
             fab:srcCompat="@drawable/ic_baseline_image_24" />
 
         <TableLayout
@@ -72,7 +75,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:text="@string/ref"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
 
                 <TextView
@@ -81,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="TextView"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
             </TableRow>
 
@@ -97,7 +101,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:text="@string/size"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
 
                 <TextView
@@ -106,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="TextView"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
             </TableRow>
 
@@ -122,7 +127,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:text="@string/fashion"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
 
                 <TextView
@@ -131,6 +136,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="TextView"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
             </TableRow>
 
@@ -147,7 +153,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:text="@string/color"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="#FFF7F7"
                     android:textSize="24sp" />
 
                 <View

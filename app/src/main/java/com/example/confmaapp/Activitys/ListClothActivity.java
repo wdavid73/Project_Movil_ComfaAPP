@@ -65,12 +65,13 @@ public class ListClothActivity extends AppCompatActivity implements AdapterCloth
         bundle = new Bundle();
         bundle.putString("photo" , c.getPhoto_cloth());
         bundle.putString("ref",c.getRef());
-        bundle.putInt("size",c.getSize());
+        //bundle.putString("size",c.getSize().getName());
         bundle.putInt("fashion",c.getStyle_fashion());
         bundle.putInt("color" , c.getColor());
 
         intent = new Intent(ListClothActivity.this , DetailsClothActivity.class);
         intent.putExtra("data" , bundle);
+        intent.putExtra("size", c.getSize());
         startActivity(intent);
         finish();
     }

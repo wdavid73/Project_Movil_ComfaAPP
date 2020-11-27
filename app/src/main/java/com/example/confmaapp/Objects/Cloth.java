@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class Cloth implements Serializable {
     private String photo_cloth;
     private String ref;
-    private int size;
+    private Size size;
     private int color;
     private int style_fashion;
 
 
 
-    public Cloth(String photo_cloth, String ref, int size, int color, int style_fashion) {
+    public Cloth(String photo_cloth, String ref, Size size, int color, int style_fashion) {
         this.photo_cloth = photo_cloth;
         this.ref = ref;
         this.size = size;
@@ -37,11 +37,11 @@ public class Cloth implements Serializable {
         this.ref = ref;
     }
 
-    public int getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(Size size) {
         this.size = size;
     }
 
@@ -63,5 +63,9 @@ public class Cloth implements Serializable {
 
     public void save(){
         Data.save_cloth(this);
+    }
+
+    public void delete(){
+        Data.delete_cloth(this);
     }
 }

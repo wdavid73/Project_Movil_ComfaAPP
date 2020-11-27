@@ -104,7 +104,7 @@ public class RegisterRentalActivity
         startActivity(intent);
     }
 
-    public void save(View v){
+    public void saveRental(View v){
         String dn, p, dr;
         Cloth c;
         Rental rental;
@@ -124,28 +124,38 @@ public class RegisterRentalActivity
     public boolean validate(){
 
         if(price.getText().toString().isEmpty()){
-            Toast.makeText(this, R.string.please_input_price , Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    R.string.please_input_price,
+                    Toast.LENGTH_LONG).show();
             price.requestFocus();
             return false;
         }
 
         if(date.getText().toString().isEmpty()){
-            Toast.makeText(this , R.string.please_input_date, Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    R.string.please_input_date,
+                    Toast.LENGTH_LONG).show();
             return false;
         }
 
         if(cloths.size() <= 0){
-            Toast.makeText(this , R.string.cloth_required , Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    R.string.cloth_required,
+                    Toast.LENGTH_LONG).show();
             return false;
         }
 
         if(cloth == null){
-            Toast.makeText(this , R.string.please_choose_cloth , Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    R.string.please_choose_cloth,
+                    Toast.LENGTH_LONG).show();
             return false;
         }
 
         if(date_now.isEmpty()){
-            Toast.makeText(this , R.string.error_date_now , Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    R.string.error_date_now,
+                    Toast.LENGTH_LONG).show();
             return false;
         }
 

@@ -47,7 +47,7 @@ public class AdapterRental extends RecyclerView.Adapter<AdapterRental.RentalView
         holder.date_return.setText(rental.getDate_return());
         holder.price.setText(rental.getPrice());
         holder.refCloth.setText(rental.getCloth().getRef());
-        holder.sizeCloth.setText(rental.getCloth().getSize());
+        holder.sizeCloth.setText(rental.getCloth().getSize().getName());
         holder.fashionCloth.setText(rental.getCloth().getStyle_fashion());
         holder.colorCloth.setBackgroundColor(rental.getCloth().getColor());
 

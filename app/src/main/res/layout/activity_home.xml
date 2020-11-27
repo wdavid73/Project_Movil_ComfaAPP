@@ -4,30 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryText"
     android:padding="10dp"
     tools:context=".HomeActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRegisterSize"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="GoToRegisterSize"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cvListCloth"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cvListCloth"
+        app:layout_constraintTop_toBottomOf="@+id/cvListCloth"
+        app:layout_constraintVertical_bias="0.295">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="110dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/size_guide"
+            android:contentDescription="@string/imglogo" />
+
+        <TextView
+            android:id="@+id/lblRegisterSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="center"
+            android:text="@string/register_size"
+            android:textColor="@color/colorText" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvRegisterCloth"
         android:layout_width="150dp"
         android:layout_height="140dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="@color/colorPrimary"
         android:onClick="GoToRegisterCloth"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblHome">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgRegisterCloth"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/needle" />
+            app:srcCompat="@drawable/needle"
+            android:contentDescription="@string/imglogo" />
 
         <TextView
             android:id="@+id/lblRegisterCloth"
@@ -44,7 +82,7 @@
         android:id="@+id/cvListCloth"
         android:layout_width="150dp"
         android:layout_height="140dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/colorPrimary"
         android:onClick="GoToListCloth"
         app:cardCornerRadius="10dp"
@@ -59,7 +97,8 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/list_cloth" />
+            app:srcCompat="@drawable/list_cloth"
+            android:contentDescription="@string/imglogo" />
 
         <TextView
             android:id="@+id/lblListCloth"
@@ -71,27 +110,27 @@
             android:textColor="@color/colorPrimaryLight" />
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cvRegisterRental"
         android:layout_width="150dp"
         android:layout_height="140dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="164dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="GoToRegisterRental"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lblHome">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgRegisterRental"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/rental" />
+            app:srcCompat="@drawable/rental"
+            android:contentDescription="@string/imglogo" />
 
         <TextView
             android:id="@+id/lblRegisterRental"
@@ -113,7 +152,7 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="@+id/cvRegisterRental"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/cvRegisterRental"
         app:layout_constraintTop_toBottomOf="@+id/cvRegisterRental">
 
@@ -122,7 +161,8 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/list_rental" />
+            app:srcCompat="@drawable/list_rental"
+            android:contentDescription="@string/imglogo" />
 
         <TextView
             android:id="@+id/lblListRental"
@@ -133,20 +173,5 @@
             android:text="@string/btn_list_rentals"
             android:textColor="@color/colorPrimaryLight" />
     </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/lblHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

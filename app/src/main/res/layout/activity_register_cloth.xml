@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryText"
     tools:context=".Activitys.RegisterClothActivity">
 
     <ImageView
@@ -11,12 +12,13 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/img_selected"
+        android:onClick="ChooseImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_image_24"
-        android:contentDescription="@string/img_selected" />
+        app:srcCompat="@drawable/ic_baseline_image_24" />
 
     <Button
         android:id="@+id/btnChooseImage"
@@ -24,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="412dp"
         android:backgroundTint="@color/colorAccent"
+        android:onClick="ChooseImage"
         android:text="@string/btn_choose_image"
         android:textColor="@color/colorPrimaryLight"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,20 +40,26 @@
         android:layout_width="381dp"
         android:layout_height="43dp"
         android:layout_marginTop="28dp"
+        android:autofillHints="@string/input_ref"
         android:ems="10"
         android:hint="@string/input_ref"
         android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage"
-        android:autofillHints="@string/input_ref" />
+        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage" />
 
     <Spinner
         android:id="@+id/spSize"
         android:layout_width="300dp"
-        android:layout_height="35dp"
+        android:layout_height="45dp"
         android:layout_marginTop="24dp"
+        android:backgroundTint="@color/colorText"
+        android:foregroundTint="@color/colorText"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +71,7 @@
         android:layout_height="46dp"
         android:layout_marginBottom="88dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:onClick="save"
+        android:onClick="saveCloth"
         android:text="@string/save"
         android:textColor="@color/colorPrimaryLight"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,29 +81,17 @@
 
     <Button
         android:id="@+id/btnPickColor"
-        android:layout_width="334dp"
+        android:layout_width="150dp"
         android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:background="@color/colorAccent"
+        android:onClick="openColorPicker"
         android:text="@string/pick_color"
         android:textColor="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rgFashion" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/info_color_selected"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/btnPickColor"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="@+id/btnPickColor"
-        app:layout_constraintTop_toBottomOf="@+id/btnPickColor" />
 
     <RadioGroup
         android:id="@+id/rgFashion"
@@ -111,12 +108,26 @@
             android:id="@+id/rbGeneral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/general" />
+            android:text="@string/general"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/rbToMeasure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/to_measure" />
+            android:text="@string/to_measure"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
     </RadioGroup>
+
+    <View
+        android:id="@+id/vColorRegisterCloth"
+        android:layout_width="150dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toEndOf="@+id/btnPickColor"
+        app:layout_constraintTop_toBottomOf="@+id/rgFashion" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN = 5000;
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
         animation = AnimationUtils.loadAnimation(this , R.anim.logo_animation);

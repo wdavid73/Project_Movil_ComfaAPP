@@ -50,4 +50,8 @@ public class Rental implements Serializable {
     public void save(){
         Data.save_rental(this);
     }
+
+    public void delete(){
+        Data.delete_rental(this);
+    }
 }

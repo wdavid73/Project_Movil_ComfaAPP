@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryText"
     tools:context=".Activitys.RegisterRentalActivity">
 
     <EditText
@@ -13,12 +14,14 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/input_price_rental"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/txtdateReturn"
@@ -27,20 +30,22 @@
         android:layout_marginTop="24dp"
         android:clickable="true"
         android:hint="@string/input_date"
+        android:importantForAutofill="no"
         android:inputType="date"
         android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPriceRental"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPriceRental" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="276dp"
         android:layout_height="48dp"
         android:background="@color/colorAccent"
-        android:onClick="save"
+        android:onClick="saveRental"
         android:text="@string/save"
         android:textColor="@color/colorPrimaryLight"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,18 +70,19 @@
         android:layout_width="300dp"
         android:layout_height="102dp"
         android:layout_marginTop="28dp"
+        android:contentDescription="@string/img_selected"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_negro_confma"
-        android:contentDescription="@string/img_selected" />
+        app:srcCompat="@drawable/logo_blanco_confma" />
 
     <TextView
         android:id="@+id/lblClothRequired"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColor="@color/colorText"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

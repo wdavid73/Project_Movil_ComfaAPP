@@ -6,13 +6,13 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,7 +24,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.confmaapp.Adapters.SpinnerCustomAdapter;
 import com.example.confmaapp.Objects.Cloth;
+import com.example.confmaapp.Objects.Data;
+import com.example.confmaapp.Objects.Size;
 import com.example.confmaapp.R;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -39,15 +42,17 @@ public class RegisterClothActivity extends AppCompatActivity {
     private Spinner spSize ;
     private RadioButton rbGeneral , rbToMeasure;
     private EditText ref;
-    private String[] sizes;
-
+    private View vColor;
+    private SpinnerCustomAdapter sca;
+    private Size[] sizes;
     private String Document_img1="";
 
-    private static final int IMAGE_PICK_CODE = 1000;    
+    private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
     int COLOR_SELECTED;
     String img;
-    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,50 +64,31 @@ public class RegisterClothActivity extends AppCompatActivity {
         spSize = findViewById(R.id.spSize);
         rbGeneral = findViewById(R.id.rbGeneral);
         rbToMeasure = findViewById(R.id.rbToMeasure);
+        vColor = findViewById(R.id.vColorRegisterCloth);
 
-        sizes = getResources().getStringArray(R.array.sizes);
+        Size[] sizes_list = Data.get_sizes().toArray(new Size[0]);
+        sizes = add2BeginningOfArray(sizes_list, new Size(getString(R.string.please_select_a_size) , ""));
 
-        ArrayAdapter<String> adapterSizes = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_dropdown_item,
-                sizes
-        );
-
-
-
-        spSize.setAdapter(adapterSizes);
+        sca = new SpinnerCustomAdapter(this,R.layout.spinner_item,sizes);
+        sca.setDropDownViewResource(R.layout.spinner_item);
+        spSize.setAdapter(sca);
 
         image_select = findViewById(R.id.image_selected);
         ChooseBtn = findViewById(R.id.btnChooseImage);
         btnPickColor = findViewById(R.id.btnPickColor);
 
-        btnPickColor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openColorPicker();
-            }
-        });
+//        btnPickColor.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openColorPicker();
+//            }
+//        });
 
-        ChooseBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
-                        // permission not granted , request it.
-                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
-                        requestPermissions(permissions, PERMISSION_CODE);
-                    }else{
-                        // permision already granted
-                        pickImageFromGallery();
-                    }
-                }else{
-                    // system os is lees then marshmallow
-                    pickImageFromGallery();
-                }
-            }
-
-
-        });
+//        ChooseBtn.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//            }
+//        });
 
 
     }
@@ -117,7 +103,8 @@ public class RegisterClothActivity extends AppCompatActivity {
             @Override
             public void onOk(AmbilWarnaDialog dialog, int color) {
                 COLOR_SELECTED = color;
-                btnPickColor.setBackgroundColor(COLOR_SELECTED);
+                vColor.setBackgroundColor(COLOR_SELECTED);
+                //btnPickColor.setBackgroundColor(COLOR_SELECTED);
             }
         });
         ambilWarnaDialog.show();
@@ -166,29 +153,37 @@ public class RegisterClothActivity extends AppCompatActivity {
             */
         }
     }
-    public void save(View v){
-        int optSize, siz, fash = 0;
+
+    public void openColorPicker(View v){
+        openColorPicker();
+    }
+
+    public void ChooseImage(View v){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+                // permission not granted , request it.
+                String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                requestPermissions(permissions, PERMISSION_CODE);
+            }else{
+                // permision already granted
+                pickImageFromGallery();
+            }
+        }else{
+            // system os is lees then marshmallow
+            pickImageFromGallery();
+        }
+    }
+
+    public void saveCloth(View v){
+        int fash = 0;
+        int siz;
         String r;
         Cloth cloth;
+        Size s;
         if (validate()){
-            optSize = spSize.getSelectedItemPosition();
+            siz = spSize.getSelectedItemPosition();
             r = ref.getText().toString();
-
-            switch (optSize){
-                case 1:
-                    siz = R.string.size_xs;
-                case 2:
-                    siz = R.string.size_s;
-                case 3:
-                    siz = R.string.size_m;
-                case 4:
-                    siz = R.string.size_l;
-                case 5:
-                    siz = R.string.size_xl;
-                    break;
-                default:
-                    throw new IllegalStateException(getString(R.string.unexpected_value) + optSize);
-            }
+            s = sca.getItem(siz);
 
             if(rbGeneral.isChecked() == true){
                 fash = R.string.general;
@@ -198,7 +193,7 @@ public class RegisterClothActivity extends AppCompatActivity {
                 fash = R.string.to_measure;
             }
 
-            cloth = new Cloth(img,r,siz,COLOR_SELECTED,fash);
+            cloth = new Cloth(img,r,s,COLOR_SELECTED,fash);
             cloth.save();
             Snackbar.make(v, R.string.cloth_save_success, Snackbar.LENGTH_LONG).show();
             clear();
@@ -222,6 +217,14 @@ public class RegisterClothActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG
             ).show();
             ref.requestFocus();
+            return false;
+        }
+
+        if (sizes.length <= 1){
+            Toast.makeText(this,
+                    R.string.please_enter_sizes_first,
+                    Toast.LENGTH_LONG
+            ).show();
             return false;
         }
 
@@ -252,6 +255,9 @@ public class RegisterClothActivity extends AppCompatActivity {
             return false;
         }
 
+
+
+
         return true;
     }
 
@@ -265,7 +271,7 @@ public class RegisterClothActivity extends AppCompatActivity {
         rbToMeasure.setChecked(false);
         spSize.setSelection(0);
         image_select.setImageResource(R.drawable.ic_baseline_image_24);
-        btnPickColor.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        vColor.setBackgroundColor(Color.TRANSPARENT);
     }
 
     public String BitMapToString(Bitmap userImage1) {
@@ -289,5 +295,12 @@ public class RegisterClothActivity extends AppCompatActivity {
             width = (int) (height * bitmapRatio);
         }
         return Bitmap.createScaledBitmap(image, width, height, true);
+    }
+
+    public static Size[] add2BeginningOfArray(Size[] elements, Size element){
+        Size[] tempArr = new Size[elements.length + 1];
+        tempArr[0] = element;
+        System.arraycopy(elements, 0, tempArr, 1, elements.length);
+        return tempArr;
     }
 }

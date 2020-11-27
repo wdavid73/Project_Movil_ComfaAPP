@@ -9,13 +9,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.confmaapp.Adapters.AdapterClothRental;
 import com.example.confmaapp.Adapters.AdapterRental;
 import com.example.confmaapp.Objects.Data;
 import com.example.confmaapp.Objects.Rental;
 import com.example.confmaapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 

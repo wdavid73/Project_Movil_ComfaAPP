@@ -46,7 +46,7 @@ public class AdapterCloth extends RecyclerView.Adapter<AdapterCloth.ClothViewHol
         Bitmap photo = StringToBitMap(cloth.getPhoto_cloth());
         holder.photoCloth.setImageBitmap(photo);
         holder.ref.setText(cloth.getRef());
-        holder.size.setText(cloth.getSize());
+        holder.size.setText(cloth.getSize().getName());
         holder.fashion.setText(cloth.getStyle_fashion());
         holder.color.setBackgroundColor(cloth.getColor());
 
