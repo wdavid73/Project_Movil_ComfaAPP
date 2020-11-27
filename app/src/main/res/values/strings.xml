@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConfmaAPP</string>
+    <string name="app_name">Confma APP</string>
     <string name="btn_cloth">Registrar Prenda</string>
     <string name="btn_rental">Registrar Alquiler</string>
     <string name="btn_list_cloth">Lista de Prendas</string>
@@ -23,11 +23,11 @@
 
 
     <string name="title_register_cloth">Registrar Prenda</string>
-    <string name="btn_choose_image">Choose a Image</string>
+    <string name="btn_choose_image">Elija una Imagen</string>
     <string name="save">Guardar</string>
-    <string name="pick_color">elegir color</string>
+    <string name="pick_color">Elegir color</string>
     <string name="input_ref">Ingrese un nombre de referencia</string>
-    <string name="info_color_selected">El Color que elija se vera reflejado en el color del boton</string>
+    <string name="info_color_selected" translatable="false">El Color que elija se vera reflejado en el color del boton</string>
 
     <string-array name="sizes">
         <item>@string/select_size</item>
@@ -46,14 +46,13 @@
     </string-array>
 
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="permision_denied">Permission denied..!</string>
-    <string name="unexpected_value">\"Unexpected value: \"</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
+    <string name="unexpected_value" translatable="false">\"Unexpected value: \"</string>
     <string name="cloth_save_success">Prenda Guardada Satisfactoriamente</string>
     <string name="please_select_a_image">porfavor seleccione una imagen</string>
     <string name="please_input_a_ref">Porfavor ingrese un nombre de referencia para la prenda</string>
@@ -61,7 +60,7 @@
     <string name="please_select_a_fashion">porfavor seleccione el estilo de la prenda</string>
     <string name="please_pick_a_color">porfavor escoga el color de la prenda</string>
     <string name="color">Color</string>
-    <string name="ref">Ref</string>
+    <string name="ref">Referencia</string>
     <string name="size">Talla</string>
     <string name="fashion">Moda</string>
     <string name="list_cloth">Listar Prendas</string>
@@ -72,17 +71,17 @@
     <string name="please_input_date">Porfavor Ingrese la Fecha de Devolucion</string>
     <string name="please_input_price">Porfavor Ingrese el valor del alquiler</string>
     <string name="please_choose_cloth">Porfavor Seleccione la prenda a alquilar</string>
-    <string name="error_date_now">Ha Ocurrido un Error Obteniendo la fecha actual intentlo mas tarde</string>
+    <string name="error_date_now">Ha Ocurrido un Error Obteniendo la fecha actual intentelo mas tarde</string>
     <string name="save_rental_successful">Alquiler Guardado Satisfactoriamente</string>
     <string name="cloth_required">Porfavor registre una prendas antes</string>
-    <string name="img_selected">img selected</string>
+    <string name="img_selected">img seleccionada</string>
     <string name="date_now">Fecha de Ingreso</string>
     <string name="date_return">Fecha de Devolucion</string>
     <string name="price_rental">Precio</string>
     <string name="rental">Alquiler</string>
     <string name="cloth">Prenda</string>
     <string name="list_rentals">Lista de Alquileres</string>
-    <string name="example">example</string>
+    <string name="example">ejemplo</string>
     <string name="details_rental">Detalle del Alquiler</string>
     <string name="delete_cloth">Eliminar Prenda</string>
     <string name="question_delete_cloth">¿Esta Seguro que desea eliminar esta prenda?</string>
@@ -96,9 +95,10 @@
     <string name="imglogo">imgLogo</string>
     <string name="register_size">Registrar Talla</string>
     <string name="please_input_name_size">Porfavor ingrese el nombre para identificar la talla</string>
-    <string name="please_input_type_size">Porfavor ingrese el tipo de la prenda</string>
+    <string name="please_input_type_size">Porfavor ingrese el tipo de la talla</string>
     <string name="register_size_successful">Talla Registrada Satisfactoriamente</string>
     <string name="please_enter_sizes_first">Porfavor Registre antes una o unas tallas para las prendas</string>
+    <string name="permision_denied">Permiso Denegado</string>
 
 
 </resources>

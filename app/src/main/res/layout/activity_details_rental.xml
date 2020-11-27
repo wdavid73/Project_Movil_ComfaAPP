@@ -57,7 +57,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="391dp"
-            android:layout_height="284dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:cardBackgroundColor="@color/colorAccent"
             app:cardCornerRadius="10dp">
@@ -83,6 +83,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -91,22 +92,23 @@
                         android:layout_height="wrap_content"
                         android:text="@string/date_now"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/lblDateNowRentalDetail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="center|right"
                         android:text="@string/example"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -115,22 +117,23 @@
                         android:layout_height="wrap_content"
                         android:text="@string/date_return"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/lblDateReturnRentalDetail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="center|right"
                         android:text="@string/example"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -139,17 +142,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/price_rental"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/lblPriceRentalDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:gravity="center|right"
                         android:text="@string/example"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -174,15 +177,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/lblRefTitleClothRentalDetail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="175dp"
                         android:layout_height="wrap_content"
                         android:text="@string/ref"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -192,21 +196,22 @@
                         android:gravity="center"
                         android:text="@string/example"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/lblFashionTitleClothRentalDetail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="175dp"
                         android:layout_height="wrap_content"
                         android:text="@string/fashion"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -216,21 +221,22 @@
                         android:gravity="center"
                         android:text="@string/example"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/lblSizeTitleClothRentalDetail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="175dp"
                         android:layout_height="wrap_content"
                         android:text="@string/size"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -240,22 +246,22 @@
                         android:gravity="center"
                         android:text="@string/example"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/lblColorTitleClothRentalDetail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="175dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/color"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <View

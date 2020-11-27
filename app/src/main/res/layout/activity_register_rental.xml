@@ -10,7 +10,7 @@
     <EditText
         android:id="@+id/txtPriceRental"
         android:layout_width="300dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/input_price_rental"
@@ -18,16 +18,15 @@
         android:inputType="numberDecimal"
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/txtdateReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:clickable="true"
         android:hint="@string/input_date"
         android:importantForAutofill="no"
@@ -35,9 +34,9 @@
         android:maxLines="1"
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtPriceRental"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/txtPriceRental"
         app:layout_constraintTop_toBottomOf="@+id/txtPriceRental" />
 
     <Button

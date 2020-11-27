@@ -56,11 +56,14 @@
 
         <TableLayout
             android:id="@+id/tblDetailsCloth"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="50dp"
-            android:gravity="center">
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:stretchColumns="*">
 
             <TableRow
                 android:id="@+id/rowRef"
@@ -72,8 +75,8 @@
                     android:id="@+id/lblRefTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
                     android:text="@string/ref"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
@@ -82,8 +85,7 @@
                     android:id="@+id/lblRefDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="TextView"
+                    android:text="@string/example"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
             </TableRow>
@@ -98,8 +100,7 @@
                     android:id="@+id/lblSizeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/size"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
@@ -108,8 +109,7 @@
                     android:id="@+id/lblSizeDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="TextView"
+                    android:text="@string/example"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
             </TableRow>
@@ -124,8 +124,7 @@
                     android:id="@+id/lblFashionTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/fashion"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
@@ -134,8 +133,7 @@
                     android:id="@+id/lblFashionDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="TextView"
+                    android:text="@string/example"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
             </TableRow>
@@ -150,8 +148,7 @@
                     android:id="@+id/lblCOlorTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/color"
                     android:textColor="#FFF7F7"
                     android:textSize="24sp" />
@@ -159,7 +156,8 @@
                 <View
                     android:id="@+id/vColorDetail"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal" />
 
             </TableRow>
         </TableLayout>
